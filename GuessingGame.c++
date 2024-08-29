@@ -8,9 +8,6 @@ int main(){
     int guess;
     int tries; 
     char choice;
-    
-    srand(time(NULL));
-    num = (rand()% 100) + 1;
 
     std::cout << "**********WELCOME TO CHINGU'S GUESSING GAME!*********\n";
     std::cout << "Enter your name: ";
@@ -19,19 +16,16 @@ int main(){
     std::cout << "Loading please wait...\n";
     usleep(2000000);
     
-    std::cout << "Type Y if you want to enter to the game and type N if you want to exit \n";
+    std::cout << "Choose difficulty chingu :> \n";
+    std::cout << "Level 1 = type 1 \n";
+    std::cout << "Level 2 = type 2 \n";
+    std::cout << "Level 3 = type 3 \n";
     std::cin >> choice;
-    if((choice == 'Y') || (choice == 'y')) {
-        std::cout << "Entering the game...\n";
-        usleep(2000000);
-        std::cout << "**********WELCOME TO CHINGU'S GUESSING GAME!*********\n";
-    }
-    else if ((choice == 'N') || (choice == 'n')){
-        std::cout << "Closing program...\n";
-        usleep(2000000);
-        exit(0);
-    }
-   do{
+
+    if(choice == '1'){
+    do{
+    srand(time(NULL));
+    num = (rand()% 100) + 1;    
     std::cout << "Enter a guess between (1-100): ";
     std::cin >> guess;
     tries++;
@@ -43,14 +37,60 @@ int main(){
             std::cout << "Too low!\n";
         }
         else{
-            std::cout << "CORRECT!\n" << " # of tries: " << tries << '\n';
+            std::cout << "CORRECT!\n" << "# of tries: " << tries << '\n';
         }
     } 
     while (guess != num);
     std::cout << "Closing program...\n";
     usleep(2000000);
     exit(0);
+}
+    if(choice == '2'){
+    do{
+    srand(time(NULL));
+    num = (rand()% 300) + 1;
+    std::cout << "Enter a guess between (1-300): ";
+    std::cin >> guess;
+    tries++;
 
+        if (guess > num){
+            std::cout << "Too high!\n";
+        }
+        else if (guess < num){
+            std::cout << "Too low!\n";
+        }
+        else{
+            std::cout << "CORRECT!\n" << "# of tries: " << tries << '\n';
+        }
+    } 
+    while (guess != num);
+    std::cout << "Closing program...\n";
+    usleep(2000000);
+    exit(0);
+}
+    if(choice == '3'){
+    do{
+    srand(time(NULL));
+    num = (rand()% 500) + 1;
+    std::cout << "Enter a guess between (1-500): ";
+    std::cin >> guess;
+    tries++;
 
-    return 0;    
+        if (guess > num){
+            std::cout << "Too high!\n";
+        }
+        else if (guess < num){
+            std::cout << "Too low!\n";
+        }
+        else{
+            std::cout << "CORRECT!\n" << "# of tries: " << tries << '\n';
+        }
+    } 
+    while (guess != num);
+    std::cout << "Closing program...\n";
+    usleep(2000000);
+    exit(0);
+}
+ return 0;    
+    
 }
